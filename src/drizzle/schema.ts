@@ -1,4 +1,4 @@
-import { TierNames, subscriptionTiers } from "@/app/data/subscriptionTiers"
+import { TierNames, subscriptionTiers } from "@/data/subscriptionTiers"
 import { relations } from "drizzle-orm"
 import {
   boolean,

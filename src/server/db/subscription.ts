@@ -1,4 +1,4 @@
-import { subscriptionTiers } from "@/app/data/subscriptionTiers"
+import { subscriptionTiers } from "@/data/subscriptionTiers"
 import { db } from "@/drizzle/db"
 import { UserSubscriptionTable } from "@/drizzle/schema"
 import { CACHE_TAGS, dbCache, getUserTag, revalidateDbCache } from "@/lib/cache"

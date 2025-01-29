@@ -4,9 +4,7 @@ import { ArrowRightIcon, CheckIcon } from "lucide-react";
 import Link from "next/link";
 import { NeonIcon } from "./_icons/Neon";
 import { ClerkIcon } from "./_icons/Clerk";
-import {
-  subscriptionTiersInOrder,
-} from "../data/subscriptionTiers";
+
 import {
   Card,
   CardContent,
@@ -19,6 +17,7 @@ import { formatCompactNumber } from "@/lib/formatters";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/BrandLogo";
+import { subscriptionTiersInOrder } from "@/data/subscriptionTiers";
 export default function HomePage() {
   return (
     <>

@@ -2,7 +2,7 @@ import {
   subscriptionTiers,
   subscriptionTiersInOrder,
   TierNames,
-} from "@/app/data/subscriptionTiers";
+} from "@/data/subscriptionTiers";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,6 +22,7 @@ import { auth } from "@clerk/nextjs/server";
 import { startOfMonth } from "date-fns";
 import { CheckIcon } from "lucide-react";
 import { ReactNode } from "react";
+import { createCheckoutSession, createCancelSession, createCustomerPortalSession } from "@/server/actions/stripe";
 
 export default async function SubscriptionPage() {
   const { userId, redirectToSignIn } = await auth();
@@ -69,7 +70,7 @@ export default async function SubscriptionPage() {
             </CardContent>
           </Card>
         </div>
-        {tier == subscriptionTiers.Free && (
+        {tier != subscriptionTiers.Free && (
           <Card>
             <CardHeader>
               <CardTitle>You are currently on the {tier.name} plan</CardTitle>
@@ -80,7 +81,7 @@ export default async function SubscriptionPage() {
             </CardHeader>
             <CardContent>
               <form 
-            //   action={createCustomerPortalSession}
+              action={createCustomerPortalSession}
               >
                 <Button
                   variant="accent"
@@ -128,11 +129,11 @@ function PricingCard({
       </CardHeader>
       <CardContent>
         <form
-        //   action={
-        //     name === "Free"
-        //       ? createCancelSession
-        //       : createCheckoutSession.bind(null, name)
-        //   }
+          action={
+            name === "Free"
+              ? createCancelSession
+              : createCheckoutSession.bind(null, name)
+          }
         >
           <Button
             disabled={isCurrent}

@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Clerk 
+Expose initiate the localhost port:3000 to public in vs-code for the clerk webhooks
+
+## Stripe
+Switch stripe dashboard to "Test mode" using https://docs.stripe.com/ url
+
+Add all product in "Product Catalog" section and store price key in .env
+
+Enable "Customer switch plan"
+    Customer portal link: [true]
+    Subscriptions: Customer switch plan [Ture] and add all the product
+    

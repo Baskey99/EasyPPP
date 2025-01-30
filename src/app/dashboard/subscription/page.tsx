@@ -16,13 +16,17 @@ import { Progress } from "@/components/ui/progress";
 import { formatCompactNumber } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
 import { getProductCount } from "@/server/db/products";
-import getProductViewCount from "@/server/db/productViews";
+import { getProductViewCount } from "@/server/db/productViews";
 import { getUserSubscriptionTier } from "@/server/db/subscription";
 import { auth } from "@clerk/nextjs/server";
 import { startOfMonth } from "date-fns";
 import { CheckIcon } from "lucide-react";
 import { ReactNode } from "react";
-import { createCheckoutSession, createCancelSession, createCustomerPortalSession } from "@/server/actions/stripe";
+import {
+  createCheckoutSession,
+  createCancelSession,
+  createCustomerPortalSession,
+} from "@/server/actions/stripe";
 
 export default async function SubscriptionPage() {
   const { userId, redirectToSignIn } = await auth();
@@ -80,9 +84,7 @@ export default async function SubscriptionPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form 
-              action={createCustomerPortalSession}
-              >
+              <form action={createCustomerPortalSession}>
                 <Button
                   variant="accent"
                   className="text-lg rounded-lg"

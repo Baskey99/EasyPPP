@@ -4,7 +4,6 @@ import { WebhookEvent } from "@clerk/nextjs/server"
 import { env } from "@/data/env/server"
 import { createUserSubscription } from "@/server/db/subscription"
 import { deleteUser } from "@/server/db/users"
-import { UserSubscriptionTable } from "@/drizzle/schema"
 
 export async function POST(req: Request) {
   console.log("POST Request received");

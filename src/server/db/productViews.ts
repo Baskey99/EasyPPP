@@ -3,7 +3,7 @@ import { ProductTable, ProductViewTable } from "@/drizzle/schema";
 import { CACHE_TAGS, dbCache, getUserTag } from "@/lib/cache";
 import { and, count, eq, gte } from "drizzle-orm";
 
-export default function getProductViewCount(userId: string, startDate: Date) {
+export function getProductViewCount(userId: string, startDate: Date) {
   const cacheFn = dbCache(getProductViewCountInternal, {
     tags: [getUserTag(userId, CACHE_TAGS.productViews)],
   });
